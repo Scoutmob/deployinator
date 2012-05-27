@@ -39,7 +39,6 @@ require 'time'
 require 'json'
 
 # deployinator libs
-require 'app'
 require 'helpers'
 require 'deployinator'
 require 'version'
@@ -63,6 +62,9 @@ Dir[Deployinator.root(["stacks", "*.rb"])].each do |file|
     end
   EOF
 end
+
+# Require app here so that it gets loaded with each stacks methods
+require 'app'
 
 require 'views/view_helpers'
 
